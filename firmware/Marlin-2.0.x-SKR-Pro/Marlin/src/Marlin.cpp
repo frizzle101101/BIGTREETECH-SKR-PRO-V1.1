@@ -777,6 +777,8 @@ void minkill() {
 
   #if HAS_POWER_SWITCH
     PSU_OFF();
+    void(*resetFunc)(void) = 0; // Declare resetFunc() at address 0
+    resetFunc();                // Jump to address 0
   #endif
 
   #if HAS_SUICIDE
